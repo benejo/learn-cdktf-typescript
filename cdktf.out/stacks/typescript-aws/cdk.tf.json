@@ -1,0 +1,53 @@
+{
+  "//": {
+    "metadata": {
+      "backend": "local",
+      "stackName": "typescript-aws",
+      "version": "0.9.2"
+    },
+    "outputs": {
+      "typescript-aws": {
+        "public_ip": "public_ip"
+      }
+    }
+  },
+  "output": {
+    "public_ip": {
+      "value": "${aws_instance.compute.public_ip}"
+    }
+  },
+  "provider": {
+    "aws": [
+      {
+        "region": "us-west-1"
+      }
+    ]
+  },
+  "resource": {
+    "aws_instance": {
+      "compute": {
+        "//": {
+          "metadata": {
+            "path": "typescript-aws/compute",
+            "uniqueId": "compute"
+          }
+        },
+        "ami": "ami-01456a894f71116f2",
+        "instance_type": "t2.micro"
+      }
+    }
+  },
+  "terraform": {
+    "backend": {
+      "local": {
+        "path": "/home/benejoseph/projects/rnd/cdftk/learn-cdktf-typescript/terraform.typescript-aws.tfstate"
+      }
+    },
+    "required_providers": {
+      "aws": {
+        "source": "aws",
+        "version": "~> 3.0"
+      }
+    }
+  }
+}
