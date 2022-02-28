@@ -12,7 +12,7 @@ class MyStack extends TerraformStack {
 
     const instance = new ec2.Instance(this, "compute", {
       ami: "ami-01456a894f71116f2",
-      instanceType: "t2.micro",
+      instanceType: "t3.micro",
     });
 
     new TerraformOutput(this, "public_ip", {
